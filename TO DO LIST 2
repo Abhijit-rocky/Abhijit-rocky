@@ -1,0 +1,28 @@
+def _init_(self, name, description, due_date):
+        self.name = name
+        self.description = description
+        self.due_date = due_date
+        self.done = False
+
+class ToDoList:
+    def _init_(self):
+        self.tasks = []
+
+    def add_task(self, task):
+        self.tasks.append(task)
+
+    def display_tasks(self):
+        for idx, task in enumerate(self.tasks, 1):
+            status = "Done" if task.done else "Not Done"
+            print(f"{idx}. {task.name} - {task.description} - Due: {task.due_date} - Status: {status}")
+
+# Sample code to interact with the ToDoList
+todo_list = ToDoList()
+
+task1 = Task("Task 1", "Description of Task 1", "2024-06-15")
+todo_list.add_task(task1)
+
+task2 = Task("Task 2", "Description of Task 2", "2024-06-20")
+todo_list.add_task(task2)
+
+todo_list.display_tasks()
